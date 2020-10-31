@@ -1,0 +1,15 @@
+<div class="mainWrapper">
+  <div class="container" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="parentControlContainer">
+      <h4>Parent ::</h4>
+      <input type="text" formControlName="title" />
+    </div>
+    <div class="childControlContainer">
+      <h6>Child ::</h6>
+      <app-custom-editor [config]="editorConfig" [parentForm]="registerForm"></app-custom-editor>
+    </div>
+    <button type="submit" [disabled]="!registerForm.valid">Submit</button>
+    <pre>FORM STATUS::{{registerForm.valid}}</pre>
+    <pre>{{registerForm.value | json}}</pre>
+  </div>
+</div>
